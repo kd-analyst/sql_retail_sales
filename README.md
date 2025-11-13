@@ -76,7 +76,7 @@ WHERE
 	OR total_sale IS NULL
 	;
 ```
-****DATA EXPLORATION****
+## DATA EXPLORATION
 
 -- HOW MANY SALES WE HAVE?
 
@@ -100,18 +100,18 @@ SELECT
 FROM sale
 GROUP BY category;
 
-3. ##Data Analysis & Findings##
-The following SQL queries were developed to answer specific business questions:
--- 	DATA ANALYSIS AND BUSINESS KEY PROBLEMS
+### 3. Data Analysis & Findings
 
--- 1. Write a SQL query to retrieve all columns for sales made on '2022-11-05'.
-```
+The following SQL queries were developed to answer specific business questions:
+
+1. **Write a SQL query to retrieve all columns for sales made on '2022-11-05'**.
+```sql
 SELECT * FROM sale
 WHERE sale_date = '2022-11-05';
 ```
--- 2. Write a SQL query to retrieve all transactions where the category is 'Clothing' and 
--- the quantity sold is more than 4 in the month of Nov-2022.
-```
+
+2. **Write a SQL query to retrieve all transactions where the category is 'Clothing' and the quantity sold is more than 4 in the month of Nov-2022**.
+```sql
 SELECT 
 	sale_date, 
 	transactions_id 
@@ -122,8 +122,8 @@ SELECT
 			AND quantity >= 4)
 WHERE sale_date BETWEEN '2022-11-01' AND '2022-11-30';
 ```
--- ALTERNATIVELY
-```
+**ALTERNATIVELY**
+```sql
 SELECT 
 	EXTRACT (MONTH FROM sale_date) AS months,
 	transactions_id
@@ -134,8 +134,8 @@ WHERE category = 'Clothing'
 	AND EXTRACT (YEAR FROM sale_date) = 2022
 	;
 ```
--- ALTERNATIVELY
-```
+**ALTERNATIVELY**
+```sql
 SELECT 
 	TO_CHAR(sale_date, 'yyyy-mm') = '2022-11' AS months,
 	transactions_id
@@ -146,20 +146,16 @@ WHERE category = 'Clothing'
 	AND EXTRACT (YEAR FROM sale_date) = 2022
 ORDER BY transactions_id DESC;
 ```
-
--- 3. Write a SQL query to calculate the total sales (total_sale) for each category.
-
-```
+3. **Write a SQL query to calculate the total sales (total_sale) for each category**.
+```sql
 SELECT category,
 	SUM(total_sale) AS total_sale
 FROM SALE
 GROUP BY category
 ORDER BY total_sale DESC;
 ```
-
--- 4. Write a SQL query to find the average age of customers who purchased items from the 'Beauty' category.
-
-```
+4. **Write a SQL query to find the average age of customers who purchased items from the 'Beauty' category**.
+```sql
 SELECT 
 	category,
 	ROUND(AVG(age),2) AS avg_age
@@ -168,16 +164,14 @@ WHERE category = 'Beauty'
 GROUP BY category
 ORDER BY AVG(age);
 ```
-
--- 5. Write a SQL query to find all transactions where the total_sale is greater than 1000.
-```
+5. **Write a SQL query to find all transactions where the total_sale is greater than 1000**.
+```sql
 SELECT *
 FROM sale
 WHERE total_sale > 1000;
 ```
--- 6. Write a SQL query to find the total number of transactions (transaction_id) 
--- made by each gender in each category.
-```
+6. **Write a SQL query to find the total number of transactions (transaction_id) made by each gender in each category**.
+```sql
 SELECT 
 	category,
 	gender,
@@ -186,9 +180,8 @@ FROM sale
 GROUP BY category, gender
 ORDER BY category;
 ```
--- 7. Write a SQL query to calculate the average sale for each month. 
--- Find out best selling month in each year.
-```
+7. **Write a SQL query to calculate the average sale for each month. Find out best selling month in each year.**
+```sql
 SELECT
 	years,
 	months,
@@ -204,8 +197,8 @@ FROM (
 	GROUP BY months, years) AS table_1
 WHERE ranks = 1;
 ```
--- 8. Write a SQL query to find the top 5 customers based on the highest total sales.
-```
+8. **Write a SQL query to find the top 5 customers based on the highest total sales**.
+```sql
 SELECT
 	customer_id,
 	SUM(total_sale)
@@ -214,17 +207,16 @@ GROUP BY customer_id
 ORDER BY SUM(total_sale) DESC
 LIMIT 5;
 ```
--- 9. Write a SQL query to find the number of unique customers who purchased items from each category.
-```
+9. **Write a SQL query to find the number of unique customers who purchased items from each category**.
+```sql
 SELECT
 	category,
 	COUNT (DISTINCT customer_id) AS unique_customers	
 FROM sale
 GROUP BY category;
 ```
--- 10. Write a SQL query to create each shift and number of orders 
--- (Example Morning <12, Afternoon Between 12 & 17, Evening >17).
-```
+10. **Write a SQL query to create each shift and number of orders (Example Morning <12, Afternoon Between 12 & 17, Evening >17)**.
+```sql
 WITH hourly_sale AS
 	(SELECT *,
 		CASE 
@@ -239,4 +231,5 @@ SELECT
 FROM hourly_sale
 GROUP BY shift;
 ```
--- END OF THE PROJECT.
+
+**END OF THE PROJECT**
