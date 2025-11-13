@@ -124,7 +124,7 @@ SELECT
 			AND quantity >= 4)
 WHERE sale_date BETWEEN '2022-11-01' AND '2022-11-30';
 ```
-**ALTERNATIVELY**
+***Alternatively***
 ```sql
 SELECT 
 	EXTRACT (MONTH FROM sale_date) AS months,
@@ -136,7 +136,7 @@ WHERE category = 'Clothing'
 	AND EXTRACT (YEAR FROM sale_date) = 2022
 	;
 ```
-**ALTERNATIVELY**
+***Alternatively***
 ```sql
 SELECT 
 	TO_CHAR(sale_date, 'yyyy-mm') = '2022-11' AS months,
@@ -234,4 +234,4 @@ FROM hourly_sale
 GROUP BY shift;
 ```
 
-**END OF THE PROJECT**
+***END OF THE PROJECT***
