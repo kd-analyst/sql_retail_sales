@@ -41,7 +41,7 @@ CREATE TABLE sale (
 );
 ```
 
-### 2. Data Exploration & Cleaning
+### 2. Data Cleaning
 -**Record Count**: Determine the total number of records in the dataset.
 -**Customer Count**: Find out how many unique customers are in the dataset.
 -**Category Count**: Identify all unique product categories in the dataset.
@@ -78,19 +78,18 @@ WHERE
 	OR total_sale IS NULL
 	;
 ```
-## DATA EXPLORATION
-
--**HOW MANY SALES WE HAVE?**
+### 3. Data Exploration
+-**HOW MANY SALES DO WE HAVE?**
 ```sql
 SELECT COUNT(transactions_id) AS total_sale
 FROM sale;
 ```
--**HOW MANY CUSTOMERS WE HAVE?**
+-**HOW MANY CUSTOMERS DO WE HAVE?**
 ```sql
 SELECT COUNT(DISTINCT customer_id) AS total_customers
 FROM sale;
 ```
--**HOW MANY CATEGORIES WE HAVE?**
+-**HOW MANY CATEGORIES DO WE HAVE?**
 ```sql
 SELECT DISTINCT(category)
 FROM sale;
@@ -103,7 +102,7 @@ SELECT
 FROM sale
 GROUP BY category;
 ```
-### 3. Data Analysis & Findings
+### 4. Data Analysis & Findings
 
 The following SQL queries were developed to answer specific business questions:
 
