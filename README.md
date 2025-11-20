@@ -263,7 +263,7 @@ For more content on SQL, data analysis, and other data-related topics, make sure
 ## About Me
 - **Name**: Koushik Das
 - **Education**: B.Sc. Physics (Hons.)
-- **LinkedIn**: Connect with me professionally
+- **LinkedIn**: [click here to redirect to my linked account](https://www.linkedin.com/in/koushik-das-0047b836a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)
 - **Contact**: 9911568488
 
 Thank you for your support, and I look forward to connecting with you!
